@@ -3,11 +3,13 @@ import PropTypes from 'prop-types'
 
 
 const Album = ({name,imageurl,artist,category})=> (
-    <div>
+    <div className="single-album">
+
         <h2>{name}</h2>
         <img src={imageurl} alt={name}></img>
         <p >Artist: {artist}</p>
         <p >Category: {category}</p>
+       
     </div>
 )
 
