@@ -2,6 +2,7 @@
 
 body{
     font-family: 'Roboto', sans-serif;
+    background-color: #022c43;
 }
 
 .title{
@@ -9,6 +10,7 @@ body{
     justify-content: center;
     font-size: 45px;
     font-style: italic;
+    color: #e4e3e3;
 }
 .search-container{
     display: flex;
@@ -26,6 +28,7 @@ body{
     padding: 3px 8px;
     width: calc(30% - 2em);
     margin: 0 8px;
+    margin: 10px;
 }
 
 img{
@@ -34,11 +37,11 @@ img{
     margin:0;
 }
 .albums-container{
-    background: lightblue;
+    background: #053f5e;
     display: grid;
     grid-template-columns: auto auto auto;
     padding: 10px;
-    
+    border-radius: 5px;
     
 }
 
@@ -46,4 +49,9 @@ img{
     flex-shrink: 1;
     flex-basis: 24%;
     text-align: center;
+    color: #FFF;
+}
+
+.album-href{
+    text-decoration: none;
 }

@@ -1,3 +1,5 @@
+import { func } from "prop-types"
+
 const baseurl='https://itunes.apple.com/us/rss/topalbums/'
 
 export async function getAlbumsByPopular(){

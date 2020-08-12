@@ -15,14 +15,26 @@ class AlbumContainer extends React.Component{
     //obteener de api
     async componentDidMount(){
         const responseJSON = await getAlbumsByPopular()
-        this.setState({albums: responseJSON.feed.entry,isFetch:false})
+        this.setState(
+            {albums: responseJSON.feed.entry,albumsBackup: responseJSON.feed.entry,isFetch:false}
+            )
     }
 
-    handleSearch = (e)=>{
-        console.log(e)
+    handleSearch = (search)=>{
+        const {albums} = this.state
+        this.setState({
+            albums: ()=>{
+                if(albums[0]["im:name"].label === search){
+                    return albums
+                }else{
+                    const newData = albums.shift();
+                    return []
+                }
+            }
+        })
     }
     componentDidUpdate(){
-        
+
     }
     //render info
     render(){
@@ -38,12 +50,12 @@ class AlbumContainer extends React.Component{
                 <section className="albums-container">
                 {
                     albums.map(
-                    (album) => <Album 
+                    (album) => <a href="" className="album-href"><Album 
                     imageurl={album["im:image"][2].label} 
                     name={album["im:name"].label}
                     artist={album["im:artist"].label}
                     category={album.category.attributes.term}
-                    key={album.id.attributes["im:id"]}/>
+                    key={album.id.attributes["im:id"]}/></a>
                     )
                 }
                 </section>
